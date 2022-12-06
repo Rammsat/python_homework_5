@@ -1,5 +1,6 @@
 from selene import have, command
 from selene.support.shared import browser
+import os
 
 
 def test_demoqa():
@@ -17,7 +18,7 @@ def test_demoqa():
     browser.element('[class="react-datepicker__day react-datepicker__day--014"]').click()
     browser.element('[id=subjectsInput]').type('English').press_enter()
     browser.element('[for=hobbies-checkbox-1]').click()
-    browser.element('[id=uploadPicture]').send_keys('C:/Users/user/Desktop/course/image.PNG')
+    browser.element('[id=uploadPicture]').send_keys(os.path.abspath('image/image.PNG'))
     browser.element('[id=currentAddress]').perform(command.js.scroll_into_view)
     browser.element('[id=currentAddress]').type('some address')
     browser.element('[id=state]').click()
